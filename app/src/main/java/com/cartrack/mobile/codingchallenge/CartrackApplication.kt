@@ -4,6 +4,7 @@ import android.app.Application
 import com.cartrack.mobile.codingchallenge.login.database.LoginDatabase
 import com.cartrack.mobile.codingchallenge.login.repository.LoginDataSource
 import com.cartrack.mobile.codingchallenge.login.repository.LoginRepository
+import com.cartrack.mobile.codingchallenge.user.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 
@@ -15,4 +16,6 @@ class CartrackApplication : Application() {
     val database by lazy { LoginDatabase.getDatabase(this, applicationScope) }
     val dataSource by lazy { LoginDataSource(database.loginDoa()) }
     val repository by lazy { LoginRepository(dataSource) }
+    val userRepository by lazy { UserRepository(this) }
+
 }

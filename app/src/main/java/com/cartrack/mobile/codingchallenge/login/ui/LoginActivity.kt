@@ -1,11 +1,11 @@
 package com.cartrack.mobile.codingchallenge.login.ui
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.*
-import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +15,7 @@ import com.cartrack.mobile.codingchallenge.login.model.LoggedInUser
 import com.cartrack.mobile.codingchallenge.login.utils.afterTextChanged
 import com.cartrack.mobile.codingchallenge.login.viewmodel.LoginViewModel
 import com.cartrack.mobile.codingchallenge.login.viewmodel.LoginViewModelFactory
+import com.cartrack.mobile.codingchallenge.user.ui.ItemListActivity
 import com.hbb20.CountryCodePicker
 
 class LoginActivity : AppCompatActivity() {
@@ -55,10 +56,10 @@ class LoginActivity : AppCompatActivity() {
             }
         }
         loginViewModel = ViewModelProvider(
-                this,
-        LoginViewModelFactory((application as CartrackApplication).repository)
+            this,
+            LoginViewModelFactory((application as CartrackApplication).repository)
         )
-        .get(LoginViewModel::class.java)
+            .get(LoginViewModel::class.java)
         loginViewModel.loginFormState.observe(this@LoginActivity, Observer {
             val loginState = it ?: return@Observer
 
@@ -89,6 +90,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUiWithUser(model: LoggedInUser) {
+        startActivity(Intent(this, ItemListActivity::class.java))
 
     }
 
