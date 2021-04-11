@@ -9,5 +9,6 @@
     <string name="username_error_message">Username not registered. Kindly register and try again.</string>
     <string name="password_error_message">Incorrect Password</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="label_user">Users</string>
 
 </resources>

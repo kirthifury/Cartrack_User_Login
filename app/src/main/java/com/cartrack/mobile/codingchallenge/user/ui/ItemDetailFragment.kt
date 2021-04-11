@@ -2,11 +2,12 @@ package com.cartrack.mobile.codingchallenge.user.ui
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.cartrack.mobile.codingchallenge.R
 import com.cartrack.mobile.codingchallenge.user.model.usersItem
 import com.google.gson.Gson
@@ -39,10 +40,19 @@ class ItemDetailFragment : Fragment(), View.OnClickListener {
         val rootView = inflater.inflate(R.layout.item_detail, container, false)
 
         item?.let {
-            rootView.findViewById<TextView>(R.id.phone_number).text = it.phone
-            rootView.findViewById<TextView>(R.id.user_email).text = it.email
-            rootView.findViewById<TextView>(R.id.user_address).text =
+            val phoneNumber = rootView.findViewById<TextView>(R.id.phone_number)
+            phoneNumber.text = it.phone
+            val userEmail = rootView.findViewById<TextView>(R.id.user_email)
+            userEmail.text = it.email
+            val userAddress = rootView.findViewById<TextView>(R.id.user_address)
+            userAddress.text =
                 "${it.address.suite}, ${it.address.street}, ${it.address.city} - ${it.address.zipcode}"
+            val workDetails = rootView.findViewById<TextView>(R.id.work_details)
+            workDetails.text = it.company.name
+            val websiteDetails = rootView.findViewById<TextView>(R.id.website_details)
+            websiteDetails.text = it.website
+            userAddress.setOnClickListener(this)
+            rootView.findViewById<ImageView>(R.id.user_location_icon).setOnClickListener(this)
         }
 
         return rootView
@@ -53,10 +63,14 @@ class ItemDetailFragment : Fragment(), View.OnClickListener {
     }
 
     override fun onClick(v: View) {
-        when(v.id) {
+        when (v.id) {
             R.id.user_address, R.id.user_location_icon -> {
                 item?.let {
-
+                    val intent = Intent(v.context, MapsActivity::class.java).apply {
+                        putExtra(MapsActivity.LAT_VAL, it.address.geo.lat.toDouble())
+                        putExtra(MapsActivity.LONG_VAL, it.address.geo.lng.toDouble())
+                    }
+                    v.context.startActivity(intent)
                 }
             }
 

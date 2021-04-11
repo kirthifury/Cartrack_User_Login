@@ -17,7 +17,7 @@
         android:layout_height="80dp"
         android:layout_marginTop="80dp"
         android:layout_marginBottom="2dp"
-        android:background="@drawable/cartrack_logo"
+        android:background="@mipmap/app_icon"
         android:padding="1dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
