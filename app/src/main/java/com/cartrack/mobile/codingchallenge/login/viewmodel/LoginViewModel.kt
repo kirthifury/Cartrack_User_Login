@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.cartrack.mobile.codingchallenge.R
-import com.cartrack.mobile.codingchallenge.login.model.LoggedInUser
-import com.cartrack.mobile.codingchallenge.login.repository.LoginResult
 import com.cartrack.mobile.codingchallenge.login.model.FetchResult
+import com.cartrack.mobile.codingchallenge.login.model.LoggedInUser
 import com.cartrack.mobile.codingchallenge.login.repository.LoginRepository
+import com.cartrack.mobile.codingchallenge.login.repository.LoginResult
 import com.cartrack.mobile.codingchallenge.login.ui.LoginFormState
 import kotlinx.coroutines.launch
 

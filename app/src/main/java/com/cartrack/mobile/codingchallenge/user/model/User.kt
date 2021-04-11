@@ -1,6 +1,6 @@
 package com.cartrack.mobile.codingchallenge.user.model
 
-import java.util.ArrayList
+import java.util.*
 
 class users : ArrayList<usersItem>()
 

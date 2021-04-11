@@ -7,8 +7,7 @@ import com.cartrack.mobile.codingchallenge.user.model.usersItem
 import com.google.gson.Gson
 import java.io.IOException
 import java.nio.charset.Charset
-import java.util.ArrayList
-import java.util.HashMap
+import java.util.*
 
 class UserRepository(private val context: Context) {
 
