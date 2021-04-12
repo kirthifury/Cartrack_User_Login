@@ -1,16 +1,16 @@
-Application for user login and see the list of users. When tapping on the user it will launch
+Application for user login and see the list of users. On selecting a user the will launch
 user info screen where you can see more details about user such as contact details, address,
 email, website and company details.
 
-As of now we haven't added user registration screen. So i have pre-populated the login database with
+As of now I haven't added user registration screen. So I have pre-populated the login database with
 few sample credentials.
 
 1. username: admin
    password: admin
-   country: singapore
+   country: Singapore
 2. username: guest
    password: guest
-   country: singapore
+   country: Singapore
 3. username: "cartrack"
    password: "password@123"
    country: "Singapore"
@@ -18,14 +18,14 @@ few sample credentials.
    password: "password1"
    country: "India"
 
-In Login screen country will get auto detected based on the device location. We can change it
-by tapping on country field.
+On Login screen, country will get auto detected based on the device location. We can change it
+by tapping on the country field.
 
-Once successful login we will get redirected to users page. Here list of users will get displayed.
-The users list maintain locally as json file and it will get parsed while display.
+On successful login, app user will be redirected to Users page. Here list of users is displayed.
+The users list is maintained locally as json file and it is parsed while displaying the list of users.
 
-Tapping on user will redirect to info screen, User additional information will display here.
-When tapping on user address or location icon it will take us to map view. where we can see his
+Tapping on user will redirect to info screen where user's additional information is displayed.
+When tapping on user address or location icon it will take us to map view where we can see the user's
 location as marker in maps.
 
 Maps api key added in local.properties for security reasons. Kindly add yours for testing.
