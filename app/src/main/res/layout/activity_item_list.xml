@@ -11,13 +11,15 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/teal_700"
         android:theme="@style/Theme.Cartrack.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/Theme.Cartrack.PopupOverlay" />
+            android:background="@color/teal_700"
+            app:popupTheme="@style/Theme.Cartrack.AppBarOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -25,6 +27,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/grey"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
         <include layout="@layout/item_list" />
     </FrameLayout>

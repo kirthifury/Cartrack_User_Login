@@ -1,6 +1,7 @@
 package com.cartrack.mobile.codingchallenge.user.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -52,6 +53,9 @@ class UserDetailFragment : Fragment(), View.OnClickListener {
             val websiteDetails = rootView.findViewById<TextView>(R.id.website_details)
             websiteDetails.text = it.website
             userAddress.setOnClickListener(this)
+            phoneNumber.setOnClickListener(this)
+            userEmail.setOnClickListener(this)
+            websiteDetails.setOnClickListener(this)
             rootView.findViewById<ImageView>(R.id.user_location_icon).setOnClickListener(this)
         }
 
@@ -72,6 +76,23 @@ class UserDetailFragment : Fragment(), View.OnClickListener {
                     }
                     v.context.startActivity(intent)
                 }
+            }
+            R.id.phone_number -> {
+                val callIntent = Intent(Intent.ACTION_CALL)
+                callIntent.data = Uri.parse("tel:${(v as TextView).text}")
+                startActivity(callIntent)
+            }
+            R.id.user_email -> {
+                val intent = Intent(Intent.ACTION_SENDTO)
+                intent.type = "text/plain"
+                intent.putExtra(Intent.EXTRA_EMAIL, "${(v as TextView).text}")
+                intent.putExtra(Intent.EXTRA_SUBJECT, "Reg:")
+                startActivity(Intent.createChooser(intent, "Send Email"))
+            }
+            R.id.website_details -> {
+                val browserIntent = Intent(Intent.ACTION_VIEW)
+                browserIntent.data = Uri.parse("${(v as TextView).text}")
+                startActivity(browserIntent)
             }
 
         }
