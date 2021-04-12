@@ -15,11 +15,11 @@ import com.google.gson.Gson
 
 /**
  * A fragment representing a single Item detail screen.
- * This fragment is either contained in a [ItemListActivity]
- * in two-pane mode (on tablets) or a [ItemDetailActivity]
+ * This fragment is either contained in a [UserListActivity]
+ * in two-pane mode (on tablets) or a [UserDetailActivity]
  * on handsets.
  */
-class ItemDetailFragment : Fragment(), View.OnClickListener {
+class UserDetailFragment : Fragment(), View.OnClickListener {
 
     private var item: usersItem? = null
 

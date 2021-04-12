@@ -15,7 +15,7 @@ import com.cartrack.mobile.codingchallenge.login.model.LoggedInUser
 import com.cartrack.mobile.codingchallenge.login.utils.afterTextChanged
 import com.cartrack.mobile.codingchallenge.login.viewmodel.LoginViewModel
 import com.cartrack.mobile.codingchallenge.login.viewmodel.LoginViewModelFactory
-import com.cartrack.mobile.codingchallenge.user.ui.ItemListActivity
+import com.cartrack.mobile.codingchallenge.user.ui.UserListActivity
 import com.hbb20.CountryCodePicker
 
 class LoginActivity : AppCompatActivity() {
@@ -90,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun updateUiWithUser(model: LoggedInUser) {
-        startActivity(Intent(this, ItemListActivity::class.java))
+        startActivity(Intent(this, UserListActivity::class.java))
 
     }
 

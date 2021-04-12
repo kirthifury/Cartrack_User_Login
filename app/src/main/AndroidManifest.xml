@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user.ui.ItemListActivity"
+            android:name=".user.ui.UserListActivity"
             android:label="@string/label_user"
             android:theme="@style/Theme.Cartrack.NoActionBar">
             <intent-filter>
@@ -32,12 +32,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".user.ui.ItemDetailActivity"
-            android:parentActivityName=".user.ui.ItemListActivity"
+            android:name=".user.ui.UserDetailActivity"
+            android:parentActivityName=".user.ui.UserListActivity"
             android:theme="@style/Theme.Cartrack.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.cartrack.mobile.codingchallenge.user.ui.ItemListActivity" />
+                android:value="com.cartrack.mobile.codingchallenge.user.ui.UserListActivity" />
         </activity>
         <activity
             android:name=".user.ui.MapsActivity"

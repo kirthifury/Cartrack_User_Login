@@ -23,11 +23,11 @@ import com.google.gson.Gson
  * An activity representing a list of Pings. This activity
  * has different presentations for handset and tablet-size devices. On
  * handsets, the activity presents a list of items, which when touched,
- * lead to a [ItemDetailActivity] representing
+ * lead to a [UserDetailActivity] representing
  * item details. On tablets, the activity presents the list of items and
  * item details side-by-side using two vertical panes.
  */
-class ItemListActivity : AppCompatActivity() {
+class UserListActivity : AppCompatActivity() {
 
     private var twoPane: Boolean = false
     private lateinit var userViewModel: UserViewModel
@@ -48,7 +48,7 @@ class ItemListActivity : AppCompatActivity() {
             twoPane = true
         }
         userViewModel.getUsers()
-        userViewModel.userListState.observe(this@ItemListActivity, Observer {
+        userViewModel.userListState.observe(this@UserListActivity, Observer {
             val users = it ?: return@Observer
             setupRecyclerView(findViewById(R.id.item_list), users)
 
@@ -60,7 +60,7 @@ class ItemListActivity : AppCompatActivity() {
     }
 
     class SimpleItemRecyclerViewAdapter(
-        private val parentActivity: ItemListActivity,
+        private val parentActivity: UserListActivity,
         private val values: List<usersItem>,
         private val twoPane: Boolean
     ) :
@@ -69,9 +69,9 @@ class ItemListActivity : AppCompatActivity() {
         private val onClickListener: View.OnClickListener = View.OnClickListener { v ->
             val item = v.tag as usersItem
             if (twoPane) {
-                val fragment = ItemDetailFragment().apply {
+                val fragment = UserDetailFragment().apply {
                     arguments = Bundle().apply {
-                        putString(ItemDetailFragment.ARG_ITEM_ID, Gson().toJson(item).toString())
+                        putString(UserDetailFragment.ARG_ITEM_ID, Gson().toJson(item).toString())
                     }
                 }
                 parentActivity.supportFragmentManager
@@ -79,9 +79,9 @@ class ItemListActivity : AppCompatActivity() {
                     .replace(R.id.item_detail_container, fragment)
                     .commit()
             } else {
-                val intent = Intent(v.context, ItemDetailActivity::class.java).apply {
-                    putExtra(ItemDetailFragment.ARG_ITEM_ID, Gson().toJson(item).toString())
-                    putExtra(ItemDetailActivity.ARG_TITLE, item.name)
+                val intent = Intent(v.context, UserDetailActivity::class.java).apply {
+                    putExtra(UserDetailFragment.ARG_ITEM_ID, Gson().toJson(item).toString())
+                    putExtra(UserDetailActivity.ARG_TITLE, item.name)
                 }
                 v.context.startActivity(intent)
             }
