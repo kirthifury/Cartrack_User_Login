@@ -27,3 +27,6 @@ The users list maintain locally as json file and it will get parsed while displa
 Tapping on user will redirect to info screen, User additional information will display here.
 When tapping on user address or location icon it will take us to map view. where we can see his
 location as marker in maps.
+
+Maps api key added in local.properties for security reasons. Kindly add yours for testing.
+Please feel free to reach out to me for any other clarifications.
