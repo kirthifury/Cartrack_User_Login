@@ -73,6 +73,14 @@ abstract class LoginDatabase : RoomDatabase() {
             data.password = "guest"
             data.country = "Singapore"
             loginDb.insertDetails(data)
+            data.username = "cartrack"
+            data.password = "password@123"
+            data.country = "Singapore"
+            loginDb.insertDetails(data)
+            data.username = "devtest"
+            data.password = "password1"
+            data.country = "India"
+            loginDb.insertDetails(data)
         }
     }
 }

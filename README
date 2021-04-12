@@ -1,0 +1,29 @@
+Application for user login and see the list of users. When tapping on the user it will launch
+user info screen where you can see more details about user such as contact details, address,
+email, website and company details.
+
+As of now we haven't added user registration screen. So i have pre-populated the login database with
+few sample credentials.
+
+1. username: admin
+   password: admin
+   country: singapore
+2. username: guest
+   password: guest
+   country: singapore
+3. username: "cartrack"
+   password: "password@123"
+   country: "Singapore"
+4. username: "devtest"
+   password: "password1"
+   country: "India"
+
+In Login screen country will get auto detected based on the device location. We can change it
+by tapping on country field.
+
+Once successful login we will get redirected to users page. Here list of users will get displayed.
+The users list maintain locally as json file and it will get parsed while display.
+
+Tapping on user will redirect to info screen, User additional information will display here.
+When tapping on user address or location icon it will take us to map view. where we can see his
+location as marker in maps.
